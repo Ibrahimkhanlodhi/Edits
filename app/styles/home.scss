@@ -1,0 +1,396 @@
+@use "sass:color";
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+// Variables
+$primary-color: #0ea5e9; // Sky blue
+$secondary-color: #0284c7; // Darker blue
+$accent-color: #06b6d4; // Cyan
+$text-color: #1e293b; // Slate 800
+$text-light: #64748b; // Slate 500
+$white: #ffffff;
+$background-color: $white;
+$background-light: #f8fafc; // Slate 50
+$background-alt: #f1f5f9; // Slate 100
+$success-color: #10b981; // Emerald 500
+$shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin gradient-text {
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@mixin gradient-bg {
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+}
+
+// Global styles
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: $text-color;
+    background-color: $background-light;
+    line-height: 1.6;
+}
+
+// Hero section
+.hero-section {
+    @include flex-center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+            radial-gradient(circle at 20% 30%, rgba($primary-color, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba($accent-color, 0.1) 0%, transparent 40%),
+            $background-light;
+        z-index: 0;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 1200px;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: $text-color;
+
+            .gradient-text {
+                @include gradient-text;
+            }
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: $text-light;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            @include flex-center;
+            gap: 1.2rem;
+
+            @media (max-width: 640px) {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Features section
+.features-section {
+    padding: 6rem 2rem;
+    background-color: $background-color;
+
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 3rem;
+        color: $text-color;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            @include gradient-bg;
+            border-radius: 2px;
+        }
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            background: white;
+            box-shadow: $shadow-sm;
+            transition: all 0.4s ease;
+
+            .icon-wrapper {
+                @include flex-center;
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 1rem;
+                @include gradient-bg;
+                margin-bottom: 1.8rem;
+
+                svg {
+                    color: white;
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: $text-color;
+            }
+
+            p {
+                color: $text-light;
+                line-height: 1.7;
+            }
+        }
+    }
+}
+
+// CTA section
+.cta-section {
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+    @include gradient-bg;
+    color: white;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: 5rem 1.5rem;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    h2 {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        margin-bottom: 2.5rem;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+    }
+
+    .cta-buttons {
+        @include flex-center;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    }
+
+    .floating-objects {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+
+        .floating-object {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+
+            &.object-1 {
+                width: 150px;
+                height: 150px;
+                top: 15%;
+                left: 10%;
+
+                @media (max-width: 768px) {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            &.object-2 {
+                width: 100px;
+                height: 100px;
+                top: 60%;
+                left: 15%;
+
+                @media (max-width: 768px) {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            &.object-3 {
+                width: 180px;
+                height: 180px;
+                top: 25%;
+                right: 12%;
+
+                @media (max-width: 768px) {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+
+            &.object-4 {
+                width: 120px;
+                height: 120px;
+                bottom: 20%;
+                right: 20%;
+
+                @media (max-width: 768px) {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+
+            &.object-5 {
+                width: 80px;
+                height: 80px;
+                bottom: 35%;
+                left: 40%;
+
+                @media (max-width: 768px) {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}
+
+// Buttons
+.button {
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+
+    @media (max-width: 640px) {
+        width: 100%;
+        text-align: center;
+    }
+
+    &.primary {
+        background-color: $primary-color;
+        color: white;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+            background-color: color.adjust($primary-color, $lightness: -5%);
+            box-shadow: $shadow-md;
+        }
+    }
+
+    &.secondary {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: $primary-color;
+        border: 1px solid $primary-color;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+// CTA section button overrides
+.cta-section {
+    .button {
+        &.primary {
+            background-color: white;
+            color: $primary-color;
+
+            &:hover {
+                background-color: $background-light;
+            }
+        }
+
+        &.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .hero-section .hero-content {
+        padding: 1.5rem;
+    }
+
+    .features-section,
+    .cta-section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+// Small screens
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .button {
+        padding: 0.875rem 1.75rem;
+    }
+}

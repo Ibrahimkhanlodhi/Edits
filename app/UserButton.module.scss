@@ -1,0 +1,17 @@
+// UserButton.module.scss
+.user-button-wrapper {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+
+    // Optional: Adjust size for smaller screens
+    @media (max-width: 480px) {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+        .clerk-user-button {
+            transform: scale(1.2); // makes it easier to tap
+        }
+}

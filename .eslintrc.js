@@ -7,10 +7,7 @@ module.exports = {
       jsx: true, // Enable JSX support (if using React)
     },
   },
-  extends: [
-    "next/core-web-vitals", // Next.js linting rules
-    "next/typescript", // Add TypeScript linting rules for Next.js
-  ],
+  extends: ["next", "next/core-web-vitals", "next/typescript"],
   rules: {
     // Disable the "no-restricted-syntax" rule entirely
     "no-restricted-syntax": "off",

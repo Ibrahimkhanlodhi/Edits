@@ -2,6 +2,7 @@ import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { fetchFile, toBlobURL } from "@ffmpeg/util";
 import { useRef, useState, useEffect } from "react";
 import "./VideoEditor.scss";
+import DashboardButton from "./DashboardButton";
 
 // Dynamically import FFmpeg to disable server-side rendering
 if (typeof window !== "undefined") {
@@ -343,12 +344,22 @@ const saveToCloudinary = async () => {
             </button>
           </>
         )}
+
+        
       </div>
+      
 
       {/* Status Message */}
       <div className={"status-message"}>
         {statusMessage}
       </div>
+<div className="action-buttons">
+  
+  <button className="btn btn--secondary btn--full" >
+        <DashboardButton/>
+      </button>
+</div>
+      
     </div>
   );
 };

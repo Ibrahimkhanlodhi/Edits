@@ -12,14 +12,8 @@ module.exports = {
     "next/typescript", // Add TypeScript linting rules for Next.js
   ],
   rules: {
-    // Optional: Disable the "no-restricted-syntax" rule if it's causing issues with `import`
-    "no-restricted-syntax": [
-      "off", // Disable this if you don't need it
-      {
-        selector: "ImportDeclaration",
-        message: "The 'import' keyword is reserved",
-      },
-    ],
+    // Disable the "no-restricted-syntax" rule entirely
+    "no-restricted-syntax": "off",
     // You can also disable other rules you don't need
     "no-console": "off",
     "no-unused-vars": "off",

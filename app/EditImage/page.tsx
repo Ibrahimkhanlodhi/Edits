@@ -29,12 +29,14 @@ import "react-advanced-cropper/dist/style.css";
 import "../styles.scss";
 import dynamic from 'next/dynamic';
 
-// Uncomment and use if you want a default test image
-// import testPhoto from "./photo.jpeg"; 
-const ClerkProvider = dynamic(() => import('@clerk/nextjs').then(mod => mod.ClerkProvider), {
-  ssr: false, // Disable SSR if needed
-  loading: () => <div>Loading...</div>
-});
+const ClerkProvider = dynamic(
+  () =>
+    import('@clerk/nextjs').then((mod) => mod.ClerkProvider),
+  {
+    ssr: false, // Disable SSR if necessary
+    loading: () => <div>Loading...</div>,
+  }
+);
 const ImageEditor = () => {
   interface ImageType {
     _id: string;

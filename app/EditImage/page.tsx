@@ -3,7 +3,6 @@
 import styles from '../UserButton.module.scss';
 import editedImageStyles from '../EditedImages.module.scss';
 import {
-  ClerkProvider,
   RedirectToSignIn,
   SignInButton,
   SignUpButton,
@@ -28,10 +27,14 @@ import { Button } from "../components/Button";
 import { ResetIcon } from "../icons/ResetIcon";
 import "react-advanced-cropper/dist/style.css";
 import "../styles.scss";
+import dynamic from 'next/dynamic';
 
 // Uncomment and use if you want a default test image
 // import testPhoto from "./photo.jpeg"; 
-
+const ClerkProvider = dynamic(() => import('@clerk/nextjs').then(mod => mod.ClerkProvider), {
+  ssr: false, // Disable SSR if needed
+  loading: () => <div>Loading...</div>
+});
 const ImageEditor = () => {
   interface ImageType {
     _id: string;

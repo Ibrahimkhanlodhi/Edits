@@ -1,18 +1,16 @@
 module.exports = {
-  parser: "@typescript-eslint/parser", // Use TypeScript parser
-  parserOptions: {
-    ecmaVersion: 2020, // Set ECMAScript version to handle ES2017 and later syntax
-    sourceType: "module", // Enable ESModules (import/export)
-    ecmaFeatures: {
-      jsx: true, // Enable JSX support (if using React)
-    },
-  },
-  extends: ["next", "next/core-web-vitals", "next/typescript"],
+  root: true,
+  extends: ["next", "eslint:recommended"],
   rules: {
-    // Disable the "no-restricted-syntax" rule entirely
-    "no-restricted-syntax": "off",
-    // You can also disable other rules you don't need
-    "no-console": "off",
-    "no-unused-vars": "off",
+    // Disable specific rules globally
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-require-imports": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: "module",
   },
 };

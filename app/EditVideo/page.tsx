@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+
 import dynamic from "next/dynamic";
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import styles from "../UserButton.module.scss";
-import DashboardButton from "../components/DashboardButton";
+
 
 // Dynamically import the component that uses FFmpeg, ensuring it's only run on the client-side.
 const VideoEditor = dynamic(() => import("../components/VideoEditor"), { ssr: false });

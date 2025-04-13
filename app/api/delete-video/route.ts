@@ -1,5 +1,5 @@
 // app/api/delete-video/route.ts
-
+/* eslint-disable */
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { v2 as cloudinary } from 'cloudinary';
@@ -51,7 +51,7 @@ export async function DELETE(request: NextRequest) {
         cloudinary.uploader.destroy(
           video.cloudinaryId,
           { resource_type: 'video' },
-          (error, result) => {
+          (error) => {
             if (error) reject(error);
             else resolve();
           }

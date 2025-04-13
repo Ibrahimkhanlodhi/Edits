@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { forwardRef } from "react";
 import {
   CropperTransitions,

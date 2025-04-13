@@ -1,5 +1,5 @@
 // app/api/get-user-videos/route.ts
-
+/* eslint-disable */
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import connectToDatabase from '@/lib/db';

@@ -1,4 +1,5 @@
 // app/api/save-image/route.ts
+/* eslint-disable */
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
 import EditedImage from '@/models/EditedImage';

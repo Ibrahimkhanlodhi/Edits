@@ -24,10 +24,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*",
-        
-      ]
+     "react": [ "./node_modules/@types/react" ]
     },
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports" : true

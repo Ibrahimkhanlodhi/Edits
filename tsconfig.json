@@ -23,8 +23,10 @@
       }
     ],
     "paths": {
+      "react" : [ "./node_modules/@types/react"],
       "@/*": [
-        "./*"
+        "./*",
+        
       ]
     },
     "forceConsistentCasingInFileNames": true
@@ -34,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "next.config.ts", "next.config.mjs"  ],
+, "next.config.js", "next.config.mjs"  ],
   "exclude": [
     "node_modules"
   ]

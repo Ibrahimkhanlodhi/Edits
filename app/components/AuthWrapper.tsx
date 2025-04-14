@@ -1,5 +1,6 @@
 
 'use client';
+import React from "react";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import ClerkClientProvider from "./ClerkClientProvider";

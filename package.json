@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^5.0.2",
-    "@clerk/nextjs": "^5.0.2",
+    "@clerk/clerk-react": "^5.27.0",
+    "@clerk/nextjs": "^6.14.3",
     "@ffmpeg/core": "^0.12.10",
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/types": "^0.12.4",

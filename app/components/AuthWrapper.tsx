@@ -12,7 +12,6 @@ interface AuthWrapperProps {
 
 export default function AuthWrapper({ children }: AuthWrapperProps) {
   return (
-    <>
     
     <ClerkClientProvider>
       <SignedIn>
@@ -37,6 +36,6 @@ alignItems: 'center',
         <SignInButton />
       </SignedOut>
     </ClerkClientProvider>
-    </>
+    
   );
 }

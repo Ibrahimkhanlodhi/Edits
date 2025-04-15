@@ -19,6 +19,10 @@ import { ResetIcon } from "../icons/ResetIcon";
 import "react-advanced-cropper/dist/style.css";
 import "../styles.scss";
 
+if (typeof window !== 'undefined') {
+    require('context-filter-polyfill');
+}
+
 const ImageEditor = () => {
   interface ImageType {
     _id: string;
@@ -51,7 +55,7 @@ useEffect(() => {
   const [src, setSrc] = useState(""); // Empty initially, will be set on upload
   const [mode, setMode] = useState<"crop" | "brightness" | "hue" | "saturation" | "contrast">("crop");
 
-  const [adjustments, setAdjustments] = useState({
+ const [adjustments, setAdjustments] = useState({
     brightness: 0,
     hue: 0,
     saturation: 0,
@@ -141,12 +145,12 @@ const onSave = async () => {
   }
 };
 
-
   const onUpdate = () => {
     previewRef.current?.refresh();
   };
 
   const changed = Object.values(adjustments).some((el) => Math.floor(el * 100));
+
   const cropperEnabled = mode === "crop";
 
   return (

@@ -11,6 +11,10 @@ export default function SignInPage() {
       card: {
         boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
         borderRadius: '1rem',
+        
+        
+        
+       
       },
     },
   }}/>

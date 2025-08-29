@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   Image as ImageIcon,
   Video,
+  ArrowUpRight,
   Wand2,
   Layers,
   Share2,
@@ -76,6 +77,21 @@ export default function Home() {
                   Video Editor
                 </Link>
               </motion.div>
+            </motion.div>
+
+            <br/>
+        
+
+            <motion.div  className="ctas"
+              variants={fadeIn}
+              >
+            <motion.div whileHover="hover" initial="rest" animate="rest" variants={hoverScale}>
+              <Link href={"https://imag-phi.vercel.app"} className='secondary'>
+              Try Our AI Image Editor <ArrowUpRight />
+
+              </Link>
+
+            </motion.div>
             </motion.div>
           </motion.div>
         </section>

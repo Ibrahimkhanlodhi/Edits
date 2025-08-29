@@ -6,8 +6,11 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'MediaMaster - Professional Image & Video Editor',
+  title: 'IMAG - Professional Image & Video Editor',
   description: 'Transform your media with AI-powered editing tools. Professional image and video editing made simple.',
+  icons: {
+    icon: '/logo.ico', // or .png/.svg depending on what you're using
+  },
 };
 
 export default function RootLayout({

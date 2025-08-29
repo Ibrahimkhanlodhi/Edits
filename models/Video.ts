@@ -1,4 +1,4 @@
-// models/Video.ts
+
 
 import mongoose, { Schema, Document } from 'mongoose';
 
@@ -34,7 +34,7 @@ const VideoSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-// Prevent mongoose from creating multiple models
+
 const Video = mongoose.models.Video || mongoose.model<IVideo>('Video', VideoSchema);
 
 export default Video;

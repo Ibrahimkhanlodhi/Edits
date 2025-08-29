@@ -1,13 +1,13 @@
-/* Global styles */
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --foreground: #000;
-  --background: #fff;
-  --accent: #333;
+  --foreground: #0e1c4f; /* Deep Navy for text */
+  --background: #f3efe8; /* Light Sand background */
+  --accent: #336659; /* Green accent */
+  --button-primary-hover: #bba591; /* Warm brown hover */
+  --button-secondary-hover: #faecc3; /* Soft cream hover */
+  --gray-rgb: 14, 28, 79; /* Base for semi-transparent text */
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.15);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.08);
+
   display: grid;
   grid-template-rows: 1fr auto;
   align-items: center;
@@ -23,14 +23,28 @@
 
 @media (prefers-color-scheme: dark) {
   .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --foreground: #fff;
-    --background: #111;
-    --accent: #e0e0e0;
+    --foreground: rgb(25, 20, 20); /* Light sand text */
+
+    /* Painterly blended background using multiple radial gradients */
+    --background: radial-gradient(
+        circle at 20% 30%,
+        #f3efe8 0%,
+        transparent 60%
+      ),
+      radial-gradient(circle at 80% 20%, #bba591 0%, transparent 70%),
+      radial-gradient(circle at 50% 70%, #faecc3 0%, transparent 60%),
+      radial-gradient(circle at 30% 80%, #336659 0%, transparent 70%),
+      radial-gradient(circle at 80% 80%, #0e1c4f 0%, transparent 70%), #0e1c4f; /* deep base to unify colors */
+
+    background: var(--background);
+    color: #f3efe8; /* better readability on dark blend */
+
+    --accent: rgba(255, 255, 73, 0.56); /* Soft cream accent */
+    --button-primary-hover: #bba591;
+    --button-secondary-hover: #336659;
+    --gray-rgb: 243, 239, 232;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.2);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.1);
   }
 }
 
@@ -50,18 +64,20 @@ h3 {
   font-weight: 500;
   letter-spacing: -0.02em;
   margin: 0;
+  color: var(--foreground);
 }
 
 .title {
   font-size: 48px;
   line-height: 1.1;
   margin-bottom: 16px;
+  color: var(--accent);
 }
 
 .subtitle {
   font-size: 18px;
   line-height: 1.5;
-  color: rgba(var(--gray-rgb), 0.8);
+  color: rgba(var(--gray-rgb), 0.7);
   margin-bottom: 32px;
   max-width: 600px;
 }
@@ -70,6 +86,7 @@ h3 {
   font-size: 32px;
   margin-bottom: 48px;
   text-align: center;
+  color: var(--accent);
 }
 
 .accent {
@@ -80,6 +97,7 @@ h3 {
 p {
   margin: 0;
   line-height: 1.6;
+  color: rgba(var(--gray-rgb), 0.9);
 }
 
 /* Hero section */
@@ -114,16 +132,18 @@ p {
   border-radius: 8px;
   padding: 32px;
   transition: all 0.3s ease;
+  border: 1px solid var(--gray-alpha-200);
 }
 
 .feature-card h3 {
   font-size: 20px;
   margin: 16px 0 8px;
+  color: var(--foreground);
 }
 
 .feature-card p {
   font-size: 15px;
-  color: rgba(var(--gray-rgb), 0.8);
+  color: rgba(var(--gray-rgb), 0.75);
 }
 
 .icon-wrapper {
@@ -133,8 +153,8 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: var(--gray-alpha-200);
-  color: var(--foreground);
+  background-color: var(--accent);
+  color: #f3efe8; /* contrast */
 }
 
 /* CTA section */
@@ -151,11 +171,12 @@ p {
 
 .cta-content h2 {
   margin-bottom: 16px;
+  color: var(--accent);
 }
 
 .cta-content p {
   margin-bottom: 32px;
-  color: rgba(var(--gray-rgb), 0.8);
+  color: rgba(var(--gray-rgb), 0.7);
 }
 
 /* Buttons */
@@ -169,7 +190,7 @@ p {
 .ctas a,
 .ctas button {
   appearance: none;
-  border-radius: 4px;
+  border-radius: 6px;
   height: 48px;
   padding: 0 24px;
   border: none;
@@ -204,9 +225,13 @@ p {
 }
 
 .footer a {
-  color: rgba(var(--gray-rgb), 0.7);
+  color: rgba(var(--gray-rgb), 0.6);
   text-decoration: none;
   transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--accent);
 }
 
 /* Hover effects */
@@ -217,10 +242,6 @@ p {
 
   .secondary:hover {
     background: var(--button-secondary-hover);
-  }
-
-  .footer a:hover {
-    color: var(--foreground);
   }
 }
 
@@ -275,10 +296,8 @@ p {
 }
 
 .auth-container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  background-color: #f9f9f9;
 }

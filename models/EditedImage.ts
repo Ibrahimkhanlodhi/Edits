@@ -1,4 +1,4 @@
-// models/EditedImage.ts
+
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
 export interface IEditedImage extends Document {
@@ -13,7 +13,7 @@ const EditedImageSchema: Schema<IEditedImage> = new Schema(
     imageUrl: { type: String, required: true },
     editedAt: { type: Date, default: Date.now },
   },
-  { timestamps: true } // Adds createdAt and updatedAt
+  { timestamps: true } 
 );
 
 const EditedImage: Model<IEditedImage> =

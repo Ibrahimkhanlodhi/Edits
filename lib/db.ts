@@ -7,7 +7,7 @@ if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable');
 }
 
-// ✅ Fix: declare global with correct structure
+
 declare global {
   var mongooseCache: {
     conn: Mongoose | null;

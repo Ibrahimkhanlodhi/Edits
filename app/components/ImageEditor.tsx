@@ -1,4 +1,4 @@
-"use client"; // Required for Next.js 13+ if using state or effects
+"use client"; 
 /* eslint-disable */
 import editedImageStyles from '../EditedImages.module.scss';
 import React, { useState, useRef, useEffect } from "react";
